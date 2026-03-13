@@ -52,6 +52,12 @@ async function startServer() {
         
         const interceptScript = `
           <script>
+            // Attempt to prevent frame-busting
+            try {
+              Object.defineProperty(window, 'top', { value: window.self, writable: false });
+              Object.defineProperty(window, 'parent', { value: window.self, writable: false });
+            } catch (e) {}
+
             document.addEventListener('click', function(e) {
               const link = e.target.closest('a');
               if (link && link.href) {
