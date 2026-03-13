@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", "Space Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-raw-bg: #E4E3DD;
+  --color-raw-ink: #111111;
+  --color-raw-accent: #FF3B00;
+  --color-raw-white: #F9F9F6;
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--color-raw-bg);
+  color: var(--color-raw-ink);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Custom scrollbar for a raw look */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-raw-bg);
+  border-left: 1px solid var(--color-raw-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-raw-ink);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
